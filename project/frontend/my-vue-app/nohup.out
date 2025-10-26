@@ -1,0 +1,342 @@
+
+> my-vue-app@0.0.0 dev
+> vite --host 0.0.0.0
+
+
+  VITE v7.1.9  ready in 2444 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://45.137.220.25:5173/
+4:05:51 PM [vite] (client) hmr update /src/App.vue
+4:06:29 PM [vite] (client) hmr update /src/App.vue
+4:10:00 PM [vite] (client) hmr update /src/App.vue
+4:11:43 PM [vite] (client) hmr update /src/App.vue
+4:12:58 PM [vite] (client) hmr update /src/App.vue
+
+> my-vue-app@0.0.0 dev
+> vite --host 0.0.0.0
+
+
+  VITE v7.1.9  ready in 2630 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://45.137.220.25:5173/
+11:56:51 AM [vite] (client) hmr update /src/App.vue
+11:56:53 AM [vite] (client) hmr update /src/App.vue
+11:58:19 AM [vite] (client) hmr update /src/App.vue
+11:58:42 AM [vite] (client) hmr update /src/App.vue
+12:00:24 PM [vite] (client) hmr update /src/App.vue
+12:00:28 PM [vite] (client) hmr update /src/App.vue
+
+> my-vue-app@0.0.0 dev
+> vite --host 0.0.0.0
+
+
+  VITE v7.1.9  ready in 2442 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://45.137.220.25:5173/
+12:57:26 PM [vite] (client) hmr update /src/App.vue
+12:57:49 PM [vite] (client) hmr update /src/App.vue
+12:58:04 PM [vite] (client) hmr update /src/App.vue
+
+> my-vue-app@0.0.0 dev
+> vite --host 0.0.0.0
+
+
+  VITE v7.1.9  ready in 2422 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://45.137.220.25:5173/
+1:43:15 PM [vite] (client) hmr update /src/App.vue
+1:43:27 PM [vite] (client) hmr update /src/App.vue
+1:48:54 PM [vite] (client) hmr update /src/App.vue
+1:53:22 PM [vite] (client) hmr update /src/components/Navbar.vue, /src/components/Navbar.vue?vue&type=style&index=0&scoped=4d808a77&lang.css
+1:53:49 PM [vite] (client) hmr update /src/App.vue
+1:54:02 PM [vite] (client) hmr update /src/App.vue
+1:55:06 PM [vite] (client) page reload src/main.js
+1:55:07 PM [vite] (client) Pre-transform error: Failed to resolve import "./components/AddUser.vue" from "src/views/Home.vue". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /root/sims-claude/project/frontend/my-vue-app/src/views/Home.vue:2:21
+  1  |  import AddUser from './components/AddUser.vue';
+     |                       ^
+  2  |  import UserList from './components/UserList.vue'
+  3  |  
+1:55:07 PM [vite] (client) Pre-transform error: Failed to resolve import "./components/AddItem.vue" from "src/views/Contact.vue". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /root/sims-claude/project/frontend/my-vue-app/src/views/Contact.vue:2:21
+  1  |  import AddItem from './components/AddItem.vue';
+     |                       ^
+  2  |  import ItemList from './components/ItemList.vue'
+  3  |  
+1:55:08 PM [vite] (client) ✨ new dependencies optimized: vue-router
+1:55:08 PM [vite] (client) ✨ optimized dependencies changed. reloading
+1:55:08 PM [vite] (client) Pre-transform error: Failed to resolve import "./components/AddUser.vue" from "src/views/Home.vue". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /root/sims-claude/project/frontend/my-vue-app/src/views/Home.vue:2:21
+  1  |  import AddUser from './components/AddUser.vue';
+     |                       ^
+  2  |  import UserList from './components/UserList.vue'
+  3  |  
+1:55:08 PM [vite] (client) Pre-transform error: Failed to resolve import "./components/AddItem.vue" from "src/views/Contact.vue". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /root/sims-claude/project/frontend/my-vue-app/src/views/Contact.vue:2:21
+  1  |  import AddItem from './components/AddItem.vue';
+     |                       ^
+  2  |  import ItemList from './components/ItemList.vue'
+  3  |  
+1:55:08 PM [vite] Internal server error: Failed to resolve import "./components/AddUser.vue" from "src/views/Home.vue". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /root/sims-claude/project/frontend/my-vue-app/src/views/Home.vue:2:21
+  1  |  import AddUser from './components/AddUser.vue';
+     |                       ^
+  2  |  import UserList from './components/UserList.vue'
+  3  |  
+      at TransformPluginContext._formatLog (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31219:43)
+      at TransformPluginContext.error (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31216:14)
+      at normalizeUrl (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29699:18)
+      at async file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29757:32
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29725:4)
+      at async EnvironmentPluginContainer.transform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31018:14)
+      at async loadAndTransform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:26143:26)
+      at async viteTransformMiddleware (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:27221:20)
+1:55:08 PM [vite] Internal server error: Failed to resolve import "./components/AddItem.vue" from "src/views/Contact.vue". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /root/sims-claude/project/frontend/my-vue-app/src/views/Contact.vue:2:21
+  1  |  import AddItem from './components/AddItem.vue';
+     |                       ^
+  2  |  import ItemList from './components/ItemList.vue'
+  3  |  
+      at TransformPluginContext._formatLog (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31219:43)
+      at TransformPluginContext.error (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31216:14)
+      at normalizeUrl (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29699:18)
+      at async file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29757:32
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29725:4)
+      at async EnvironmentPluginContainer.transform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31018:14)
+      at async loadAndTransform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:26143:26)
+      at async viteTransformMiddleware (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:27221:20)
+1:56:38 PM [vite] (client) page reload src/views/Contact.vue
+1:56:39 PM [vite] (client) Pre-transform error: Failed to resolve import "./components/AddUser.vue" from "src/views/Home.vue". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /root/sims-claude/project/frontend/my-vue-app/src/views/Home.vue:2:21
+  1  |  import AddUser from './components/AddUser.vue';
+     |                       ^
+  2  |  import UserList from './components/UserList.vue'
+  3  |  
+1:56:39 PM [vite] Internal server error: Failed to resolve import "./components/AddUser.vue" from "src/views/Home.vue". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /root/sims-claude/project/frontend/my-vue-app/src/views/Home.vue:2:21
+  1  |  import AddUser from './components/AddUser.vue';
+     |                       ^
+  2  |  import UserList from './components/UserList.vue'
+  3  |  
+      at TransformPluginContext._formatLog (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31219:43)
+      at TransformPluginContext.error (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31216:14)
+      at normalizeUrl (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29699:18)
+      at async file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29757:32
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29725:4)
+      at async EnvironmentPluginContainer.transform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31018:14)
+      at async loadAndTransform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:26143:26)
+      at async viteTransformMiddleware (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:27221:20)
+1:56:46 PM [vite] (client) page reload src/views/Home.vue
+1:57:25 PM [vite] (client) hmr update /src/App.vue
+1:57:59 PM [vite] (client) hmr update /src/views/Home.vue
+1:57:59 PM [vite] (client) Pre-transform error: Failed to load url /src/views/Home.vue (resolved id: /root/sims-claude/project/frontend/my-vue-app/src/views/Home.vue) in /root/sims-claude/project/frontend/my-vue-app/src/router/index.js. Does the file exist?
+1:58:22 PM [vite] (client) hmr update /src/views/Contact.vue
+1:58:22 PM [vite] (client) Pre-transform error: Failed to load url /src/views/Home.vue (resolved id: /root/sims-claude/project/frontend/my-vue-app/src/views/Home.vue) in /root/sims-claude/project/frontend/my-vue-app/src/router/index.js. Does the file exist?
+1:58:22 PM [vite] (client) Pre-transform error: Failed to load url /src/views/Contact.vue (resolved id: /root/sims-claude/project/frontend/my-vue-app/src/views/Contact.vue) in /root/sims-claude/project/frontend/my-vue-app/src/router/index.js. Does the file exist?
+1:58:35 PM [vite] (client) hmr update /src/views/Home.vue
+1:58:35 PM [vite] (client) hmr update /src/views/About.vue
+1:58:35 PM [vite] (client) Pre-transform error: Failed to load url /src/views/About.vue (resolved id: /root/sims-claude/project/frontend/my-vue-app/src/views/About.vue) in /root/sims-claude/project/frontend/my-vue-app/src/router/index.js. Does the file exist?
+1:58:35 PM [vite] (client) Pre-transform error: Failed to load url /src/views/Contact.vue (resolved id: /root/sims-claude/project/frontend/my-vue-app/src/views/Contact.vue) in /root/sims-claude/project/frontend/my-vue-app/src/router/index.js. Does the file exist?
+1:59:23 PM [vite] (client) page reload src/router/index.js
+1:59:40 PM [vite] (client) page reload src/router/index.js
+1:59:58 PM [vite] (client) page reload src/router/index.js
+2:00:01 PM [vite] (client) page reload src/router/index.js
+2:00:04 PM [vite] (client) page reload src/main.js
+2:00:49 PM [vite] (client) hmr update /src/components/Navbar.vue
+
+> my-vue-app@0.0.0 dev
+> vite --host 0.0.0.0
+
+
+  VITE v7.1.9  ready in 2443 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://45.137.220.25:5173/
+
+> my-vue-app@0.0.0 dev
+> vite --host 0.0.0.0
+
+
+  VITE v7.1.9  ready in 2513 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://45.137.220.25:5173/
+2:45:59 PM [vite] (client) page reload src/router/index.js
+2:46:47 PM [vite] (client) page reload src/router/index.js
+2:46:47 PM [vite] (client) page reload src/router/index.js
+4:25:09 PM [vite] (client) page reload src/router/index.js
+4:25:09 PM [vite] (client) Pre-transform error: At least one <template> or <script> is required in a single file component. /root/sims-claude/project/frontend/my-vue-app/src/views/Login.vue
+  Plugin: vite:vue
+  File: /root/sims-claude/project/frontend/my-vue-app/src/views/Login.vue
+4:25:09 PM [vite] Internal server error: At least one <template> or <script> is required in a single file component. /root/sims-claude/project/frontend/my-vue-app/src/views/Login.vue
+  Plugin: vite:vue
+  File: /root/sims-claude/project/frontend/my-vue-app/src/views/Login.vue
+      at Object.parse$1 [as parse] (/root/sims-claude/project/frontend/my-vue-app/node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js:1871:7)
+      at createDescriptor (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/@vitejs/plugin-vue/dist/index.js:79:42)
+      at transformMain (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/@vitejs/plugin-vue/dist/index.js:1633:33)
+      at TransformPluginContext.handler (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/@vitejs/plugin-vue/dist/index.js:2045:27)
+      at EnvironmentPluginContainer.transform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31018:51)
+      at async loadAndTransform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:26143:26)
+4:25:10 PM [vite] Internal server error: At least one <template> or <script> is required in a single file component. /root/sims-claude/project/frontend/my-vue-app/src/views/Login.vue
+  Plugin: vite:vue
+  File: /root/sims-claude/project/frontend/my-vue-app/src/views/Login.vue
+      at Object.parse$1 [as parse] (/root/sims-claude/project/frontend/my-vue-app/node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js:1871:7)
+      at createDescriptor (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/@vitejs/plugin-vue/dist/index.js:79:42)
+      at transformMain (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/@vitejs/plugin-vue/dist/index.js:1633:33)
+      at TransformPluginContext.handler (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/@vitejs/plugin-vue/dist/index.js:2045:27)
+      at EnvironmentPluginContainer.transform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31018:51)
+      at async loadAndTransform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:26143:26)
+4:25:27 PM [vite] (client) Pre-transform error: Failed to resolve import "axios" from "src/views/Login.vue". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /root/sims-claude/project/frontend/my-vue-app/src/views/Login.vue:15:19
+  1  |  import { ref } from "vue";
+  2  |  import axios from "axios";
+     |                     ^
+  3  |  
+  4  |  
+4:25:27 PM [vite] Internal server error: Failed to resolve import "axios" from "src/views/Login.vue". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /root/sims-claude/project/frontend/my-vue-app/src/views/Login.vue:15:19
+  1  |  import { ref } from "vue";
+  2  |  import axios from "axios";
+     |                     ^
+  3  |  
+  4  |  
+      at TransformPluginContext._formatLog (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31219:43)
+      at TransformPluginContext.error (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31216:14)
+      at normalizeUrl (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29699:18)
+      at async file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29757:32
+      at async Promise.all (index 1)
+      at async TransformPluginContext.transform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29725:4)
+      at async EnvironmentPluginContainer.transform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31018:14)
+      at async loadAndTransform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:26143:26)
+      at async viteTransformMiddleware (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:27221:20)
+4:25:41 PM [vite] Internal server error: Failed to resolve import "axios" from "src/views/Login.vue". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /root/sims-claude/project/frontend/my-vue-app/src/views/Login.vue:15:19
+  1  |  import { ref } from "vue";
+  2  |  import axios from "axios";
+     |                     ^
+  3  |  
+  4  |  
+      at TransformPluginContext._formatLog (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31219:43)
+      at TransformPluginContext.error (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31216:14)
+      at normalizeUrl (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29699:18)
+      at async file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29757:32
+      at async Promise.all (index 1)
+      at async TransformPluginContext.transform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:29725:4)
+      at async EnvironmentPluginContainer.transform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31018:14)
+      at async loadAndTransform (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:26143:26)
+      at async viteTransformMiddleware (file:///root/sims-claude/project/frontend/my-vue-app/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:27221:20)
+4:26:10 PM [vite] (client) ✨ new dependencies optimized: axios
+4:26:10 PM [vite] (client) ✨ optimized dependencies changed. reloading
+4:37:39 PM [vite] (client) hmr update /src/views/Login.vue
+4:39:29 PM [vite] (client) hmr update /src/views/Login.vue
+5:02:38 PM [vite] (client) hmr update /src/views/Login.vue
+5:06:35 PM [vite] (client) hmr update /src/views/Login.vue
+5:08:03 PM [vite] (client) hmr update /src/views/Login.vue
+5:19:57 PM [vite] (client) hmr update /src/views/Login.vue
+5:23:14 PM [vite] (client) hmr update /src/views/Login.vue
+
+> my-vue-app@0.0.0 dev
+> vite --host 0.0.0.0
+
+
+  VITE v7.1.9  ready in 2447 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://45.137.220.25:5173/
+7:57:47 AM [vite] (client) hmr update /src/components/UserList.vue
+8:45:44 AM [vite] (client) hmr update /src/views/Login.vue
+8:47:08 AM [vite] (client) page reload src/router/index.js
+8:47:14 AM [vite] (client) page reload src/router/index.js
+8:47:33 AM [vite] (client) page reload src/router/index.js
+8:48:46 AM [vite] (client) page reload src/router/index.js
+8:50:03 AM [vite] (client) hmr update /src/views/Login.vue
+8:51:03 AM [vite] (client) hmr update /src/views/Login.vue
+8:51:22 AM [vite] (client) hmr update /src/views/Login.vue
+8:51:36 AM [vite] (client) hmr update /src/views/Login.vue
+8:53:00 AM [vite] (client) hmr update /src/views/Login.vue
+8:53:09 AM [vite] (client) hmr update /src/views/Login.vue
+8:53:39 AM [vite] (client) hmr update /src/views/Login.vue
+8:53:54 AM [vite] (client) hmr update /src/views/Login.vue
+8:55:28 AM [vite] (client) hmr update /src/views/Login.vue
+8:55:46 AM [vite] (client) hmr update /src/views/Login.vue
+8:55:51 AM [vite] (client) hmr update /src/views/Login.vue
+8:55:56 AM [vite] (client) hmr update /src/views/Login.vue
+8:56:22 AM [vite] (client) hmr update /src/views/Login.vue
+8:56:39 AM [vite] (client) hmr update /src/views/Login.vue
+8:56:55 AM [vite] (client) hmr update /src/views/Login.vue
+1:08:40 PM [vite] (client) hmr update /src/components/Navbar.vue
+1:09:44 PM [vite] (client) hmr update /src/components/UserList.vue
+1:11:02 PM [vite] (client) hmr update /src/components/UserList.vue
+1:11:05 PM [vite] (client) hmr update /src/components/UserList.vue
+1:11:29 PM [vite] (client) hmr update /src/components/UserList.vue
+1:11:52 PM [vite] (client) hmr update /src/components/UserList.vue
+1:12:04 PM [vite] (client) hmr update /src/components/UserList.vue
+
+> my-vue-app@0.0.0 dev
+> vite --host 0.0.0.0
+
+
+  VITE v7.1.9  ready in 2444 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://45.137.220.25:5173/
+2:02:10 PM [vite] (client) hmr update /src/views/Login.vue
+2:02:29 PM [vite] (client) hmr update /src/views/Login.vue
+2:03:37 PM [vite] (client) hmr update /src/views/Login.vue
+2:04:16 PM [vite] (client) hmr update /src/views/Login.vue
+2:04:25 PM [vite] (client) hmr update /src/views/Login.vue
+
+> my-vue-app@0.0.0 dev
+> vite --host 0.0.0.0
+
+
+  VITE v7.1.9  ready in 2406 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://45.137.220.25:5173/
+10:00:28 AM [vite] (client) hmr update /src/views/Login.vue
+10:01:51 AM [vite] (client) hmr update /src/views/Login.vue
+10:02:06 AM [vite] (client) hmr update /src/views/Login.vue
+10:07:06 AM [vite] (client) page reload src/router/index.js
+10:07:07 AM [vite] (client) page reload src/router/index.js
+10:07:08 AM [vite] (client) page reload src/router/index.js
+10:07:18 AM [vite] (client) page reload src/router/index.js
+10:07:19 AM [vite] (client) page reload src/router/index.js
+10:07:20 AM [vite] (client) page reload src/router/index.js
+10:07:21 AM [vite] (client) page reload src/router/index.js
+10:07:23 AM [vite] (client) hmr update /src/views/Login.vue
+10:12:27 AM [vite] (client) hmr update /src/views/Register.vue
+10:34:25 AM [vite] (client) hmr update /src/components/Navbar.vue?vue&type=style&index=0&scoped=4d808a77&lang.css
+10:36:21 AM [vite] (client) hmr update /src/components/Navbar.vue
+10:37:06 AM [vite] (client) hmr update /src/components/Navbar.vue?vue&type=style&index=0&scoped=4d808a77&lang.css
+10:37:56 AM [vite] (client) hmr update /src/components/Navbar.vue
+10:42:23 AM [vite] (client) hmr update /src/components/Navbar.vue
+10:59:49 AM [vite] (client) hmr update /src/components/Navbar.vue
+11:00:07 AM [vite] (client) hmr update /src/components/Navbar.vue
+11:01:55 AM [vite] (client) hmr update /src/components/Navbar.vue
+11:03:32 AM [vite] (client) hmr update /src/components/Navbar.vue
+11:04:30 AM [vite] (client) hmr update /src/components/Navbar.vue
+11:04:58 AM [vite] (client) hmr update /src/components/Navbar.vue
+11:08:05 AM [vite] (client) hmr update /src/components/LogoutButton.vue
+11:08:07 AM [vite] (client) hmr update /src/components/Navbar.vue
+11:09:24 AM [vite] (client) hmr update /src/components/Navbar.vue
+11:10:23 AM [vite] (client) hmr update /src/views/Login.vue
+11:13:17 AM [vite] (client) hmr update /src/components/UserList.vue
