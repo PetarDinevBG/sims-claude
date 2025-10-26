@@ -2,6 +2,10 @@
   <form @submit.prevent="addItem">
     <input v-model="name" placeholder="Name" required />
     <input v-model="type" placeholder="Type" required />
+    <input v-model="serialNumber" placeholder="Serial Number" required />
+    <input v-model="condition" placeholder="Condition" required />
+    <input v-model="status" placeholder="Status" required />
+    <input v-model="location" placeholder="Location" required />
     <button type="submit">Add Item</button>
     <div v-if="result">{{ result }}</div>
   </form>
@@ -13,6 +17,10 @@ import { ref } from 'vue'
 const name = ref('')
 const type = ref('')
 const result = ref('')
+const serialNumber = ref('')
+const condition = ref('')
+const status = ref('')
+const location = ref('')
 
 const addItem = async () => {
   try {
@@ -22,6 +30,10 @@ const addItem = async () => {
       body: JSON.stringify({
         name: name.value,
         type: type.value,
+        serial_number: serialNumber.value,
+        condition: condition.value,
+        status: status.value,
+        location: location.value,
       }),
     })
     if (!response.ok) throw new Error(await response.text())
@@ -29,6 +41,10 @@ const addItem = async () => {
     result.value = `Item ${data.name} created!`
     name.value = ''
     type.value = ''
+    serialNumber.value = ''
+    condition.value = ''
+    status.value = ''
+    location.value = ''
   } catch (e) {
     result.value = `Error: ${e}`
   }

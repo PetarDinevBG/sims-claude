@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from database import SessionLocal 
 from models import User, Base, Item
 from auth import create_access_token
-from schemas import UserCreate, UserOut, ItemCreate, ItemOut, UserLogin,UserRegister
+from schemas import UserCreate, UserOut, ItemCreate, ItemOut, UserLogin,UserRegister, RoleUpdate
 from database import engine, get_db
 
 
@@ -77,12 +77,7 @@ def create_item(item: ItemCreate, db: Session = Depends(get_db)):
         db.rollback()
         raise HTTPException(status_code=400, detail="Item already exists or error occurred.")
     return db_item
-@app.get("/kristian/")
-def get_kristian():
-    return "kristian "
-@app.get("/bobmir/")
-def get_bobmir():
-    return "bobmir "
+
 @app.post("/login/")
 def login(user:UserLogin, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.username == user.username, User.password == user.password).first()
@@ -102,3 +97,43 @@ def register_user(user: UserRegister, db: Session = Depends(get_db)):
         db.rollback()
         raise HTTPException(status_code=400, detail="User already exists or error occurred.")
     return db_user
+
+@app.patch("/users/{user_id}/role", response_model=UserOut)
+def update_user_role(user_id: int, payload: RoleUpdate, db: Session = Depends(get_db)):
+    db_user = db.query(User).filter(User.id == user_id).first()
+    if not db_user:
+        raise HTTPException(status_code=404, detail="User not found")
+    db_user.role = payload.role
+    try:
+        db.commit()
+        db.refresh(db_user)
+    except Exception:
+        db.rollback()
+        raise HTTPException(status_code=400, detail="Could not update role")
+    return db_user
+
+@app.delete("/users/{user_id}")
+def delete_user(user_id: int, db: Session = Depends(get_db)):
+    db_user = db.query(User).filter(User.id == user_id).first()
+    if not db_user:
+        raise HTTPException(status_code=404, detail="User not found")
+    try:
+        db.delete(db_user)
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise HTTPException(status_code=400, detail="Could not delete user")
+    return {"detail": "User deleted"}
+
+@app.delete("/items/{item_id}/")
+def delete_item(item_id: int, db: Session = Depends(get_db)):
+    db_item = db.query(Item).filter(Item.id == item_id).first()
+    if not db_item:
+        raise HTTPException(status_code=404, detail="Item not found")
+    try:
+        db.delete(db_item)
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise HTTPException(status_code=400, detail="Could not delete item")
+    return {"detail": "Item deleted"}

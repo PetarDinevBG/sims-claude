@@ -1,6 +1,12 @@
 from sqlalchemy import Column, Integer, String
 from database import Base
+import enum
 
+class StatusOptions(enum.Enum):
+    available = "Available"
+    checked_out = "Checked Out"
+    under_repair = "Under Repair"
+    retired = "Retired"
 
 class User(Base):
     __tablename__ = "users"
@@ -13,5 +19,10 @@ class User(Base):
 class Item(Base):
     __tablename__ = "items"
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True, nullable=False)
-    type = Column(String,  index=True, nullable=False)
+    name = Column(String, index=True, nullable=True)
+    type = Column(String,  index=True, nullable=True)
+    serial_number = Column(String, default="0000",  index=True, nullable=True)
+    condition = Column(String, default="New",  index=True, nullable=True)
+    status = Column(String, default="Available",  index=True, nullable=True)
+    location = Column(String, default="School",  index=True, nullable=True)
+    photo_url = Column(String,default="/",  index=True, nullable=True)

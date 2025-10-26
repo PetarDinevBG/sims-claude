@@ -8,7 +8,7 @@ const routes = [
   { path: '/', component: Home },
   { path: '/users', component: UserView },
   { path: '/items', component: ItemView, meta: { requiresAuth: true } },
-  { path: '/Login', component: Login},
+  { path: '/login', component: Login},
   { path: '/register', component: RegisterView },
 ]
 
