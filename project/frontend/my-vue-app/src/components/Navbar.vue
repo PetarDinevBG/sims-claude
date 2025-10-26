@@ -11,7 +11,7 @@ const token = ref(localStorage.getItem('access_token'))
 // computed boolean that updates when `token` changes
 const isLoggedIn = computed(() => !!token.value)
 
-// --- added: decode JWT payload and isAdmin check ---
+// --- decode JWT payload and isAdmin check ---
 function decodeJwtPayload(tokenStr: string | null) {
   if (!tokenStr) return null
   try {
@@ -36,40 +36,6 @@ const isAdmin = computed(() => {
   return false
 })
 // --- end added ---
-
-// THEME: persistent light/dark switching using CSS variables on :root
-const theme = ref(localStorage.getItem('theme') || 'light')
-
-function applyTheme(t: string) {
-  const root = document.documentElement
-  if (t === 'dark') {
-    root.style.setProperty('--accent', '#27ae60') /* green accent for dark */
-    root.style.setProperty('--bg', '#0b1a12')
-    root.style.setProperty('--card', '#071612')
-    root.style.setProperty('--muted', '#9aaeb0')
-    root.style.setProperty('--glass', 'rgba(255,255,255,0.03)')
-    root.style.setProperty('--text', '#e6f7ef')
-    root.style.setProperty('--shadow-lg', '0 14px 40px rgba(2,8,10,0.55)')
-  } else {
-    root.style.setProperty('--accent', '#1f9b4a') /* professional green */
-    root.style.setProperty('--bg', '#f6fbf8')
-    root.style.setProperty('--card', '#ffffff')
-    root.style.setProperty('--muted', '#6b7280')
-    root.style.setProperty('--glass', 'rgba(255,255,255,0.6)')
-    root.style.setProperty('--text', '#082018')
-    root.style.setProperty('--shadow-lg', '0 14px 36px rgba(31,155,74,0.14)')
-  }
-  localStorage.setItem('theme', t)
-}
-
-function toggleTheme() {
-  theme.value = theme.value === 'dark' ? 'light' : 'dark'
-  applyTheme(theme.value)
-}
-
-onMounted(() => {
-  applyTheme(theme.value)
-})
 
 // keep token in sync across tabs (storage) and same-tab actions (auth-change)
 const onStorage = (e: StorageEvent) => {
@@ -97,7 +63,7 @@ const goLogin = () => router.push('/login')
     <div class="nav-container">
       <div class="nav-left">
         <button class="brand" @click="router.push('/')">
-          <span class="brand-mark" aria-hidden="true">🌿</span>
+          <span class="brand-mark" aria-hidden="true">📚✏️</span>
           <span class="brand-text">School Inventory</span>
         </button>
 
@@ -112,11 +78,6 @@ const goLogin = () => router.push('/login')
 
       <div class="nav-right">
         <div class="actions" role="navigation" aria-label="User actions">
-          <button class="icon-btn" @click="toggleTheme" :aria-pressed="theme === 'dark'" :title="theme === 'dark' ? 'Switch to light' : 'Switch to dark'">
-            <span v-if="theme === 'dark'">☀️</span>
-            <span v-else>🌙</span>
-          </button>
-
           <button class="ghost-btn" title="Help" aria-label="Help">?</button>
 
           <button v-if="isLoggedIn" class="profile-pill" aria-label="Account">Account</button>
@@ -228,18 +189,6 @@ const goLogin = () => router.push('/login')
   gap:10px;
   align-items:center;
 }
-
-/* compact icon button */
-.icon-btn {
-  background: rgba(255,255,255,0.06);
-  border: none;
-  color: #fff;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-.icon-btn:hover { transform: translateY(-1px); }
 
 /* ghost/help button */
 .ghost-btn {

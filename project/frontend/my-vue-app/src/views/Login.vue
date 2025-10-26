@@ -3,7 +3,7 @@
     <div class="card">
       <header class="card-header">
         <h2>Welcome Back</h2>
-        <p class="muted">Sign in to continue to MyApp</p>
+        <p class="muted">Sign in to continue to School Inventory</p>
       </header>
 
       <form class="form" @submit.prevent="login" novalidate>

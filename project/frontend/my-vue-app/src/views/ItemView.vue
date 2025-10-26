@@ -6,7 +6,6 @@ import ItemList from '../components/ItemList.vue'
 
 <template>
 
-    <h1>Add Items:</h1>
-    <AddItem />
+
     <ItemList />
 </template>

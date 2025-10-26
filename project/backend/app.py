@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import Depends
 from sqlalchemy.orm import Session
 from database import SessionLocal 
-from models import User, Base, Item, Request
+from models import User, Base, Item, Request, StatusOptions, RequestStatus
 from auth import create_access_token
 from schemas import UserCreate, UserOut, ItemCreate, ItemOut, UserLogin,UserRegister, RoleUpdate, RequestCreate, RequestOut
 from database import engine, get_db
@@ -83,7 +83,7 @@ def login(user:UserLogin, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.username == user.username, User.password == user.password).first()
     if not user:
         raise HTTPException(status_code=401, detail="Invalid username or password")
-    access_token = create_access_token(data={"sub": user.username, "role": user.role})
+    access_token = create_access_token(data={"sub": user.username, "role": user.role, "user_id": user.id})
     return {"access_token": access_token}
 
 @app.post("/register/", response_model=UserOut)
@@ -178,6 +178,10 @@ def create_request(req: RequestCreate, db: Session = Depends(get_db)):
         status=getattr(req, "status", "pending"),
         # add other fields as your Request model defines them
     )
+    if getattr(db_req, "status", None) == "approved":
+        item = db.query(Item).filter(Item.id == db_req.item_id).first()
+        if item:
+            item.status = StatusOptions.checked_out.value
     db.add(db_req)
     try:
         db.commit()

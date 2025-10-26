@@ -4,12 +4,14 @@ import Home from '../views/Home.vue'
 import ItemView from '../views/ItemView.vue'
 import Login from '../views/Login.vue' 
 import RegisterView from '../views/Register.vue'
+import RequestView from '../views/RequestsView.vue'
 const routes = [
   { path: '/', component: Home },
   { path: '/users', component: UserView },
   { path: '/items', component: ItemView, meta: { requiresAuth: true } },
   { path: '/login', component: Login},
   { path: '/register', component: RegisterView },
+  { path: '/requests', component: RequestView, meta: { requiresAuth: true } },
 ]
 
 const router = createRouter({

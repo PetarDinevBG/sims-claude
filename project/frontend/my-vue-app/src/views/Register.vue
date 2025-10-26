@@ -3,7 +3,7 @@
     <div class="card">
       <header class="card-header">
         <h2>Create an account</h2>
-        <p class="muted">Join MyApp — quick and free</p>
+        <p class="muted">Join School Inventory — quick and free</p>
       </header>
 
       <form class="form" @submit.prevent="register" novalidate>
@@ -17,9 +17,33 @@
           <input v-model="email" type="email" required autocomplete="email" />
         </label>
 
-        <label class="field">
+        <label class="field pwd-field">
           <span class="label-text">Password</span>
-          <input v-model="password" type="password" required autocomplete="new-password" />
+          <div class="pwd-row">
+            <input
+              v-model="password"
+              :type="showPassword ? 'text' : 'password'"
+              required
+              autocomplete="new-password"
+              class="with-toggle"
+            />
+            <button
+              class="pwd-toggle"
+              type="button"
+              @click="togglePassword"
+              :aria-pressed="String(showPassword)"
+              :aria-label="showPassword ? 'Hide password' : 'Show password'"
+            >
+              <svg v-if="!showPassword" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              </svg>
+              <svg v-else viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a20.6 20.6 0 0 1 5.08-6.06" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1 1l22 22" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
         </label>
 
         <div class="actions">
@@ -44,6 +68,9 @@ const password = ref('')
 const message = ref('')
 const messageClass = ref('')
 
+const showPassword = ref(false)
+const togglePassword = () => { showPassword.value = !showPassword.value }
+
 const register = async () => {
   message.value = ''
   messageClass.value = ''
@@ -60,7 +87,7 @@ const register = async () => {
     if (res.ok) {
       message.value = 'Registration successful. Redirecting to login...'
       messageClass.value = 'success'
-      setTimeout(() => router.push('/login'), 1000)
+      setTimeout(() => router.push('/login'), 900)
     } else {
       const err = await res.json().catch(() => null)
       message.value = err?.detail || 'Registration failed'
@@ -78,14 +105,15 @@ const gotoLogin = () => router.push('/login')
 
 <style scoped>
 :root{
+  --accent: #1f8a4d;
   --green-700: #1f8a4d;
   --green-500: #2e8b57;
-  --green-300: #66c18d;
   --bg: #f6fbf8;
   --card: #ffffff;
   --muted: #6b7280;
   --error: #e55353;
   --success: #16a34a;
+  --shadow-lg: 0 10px 30px rgba(31,155,74,0.12);
 }
 
 .page{
@@ -93,19 +121,23 @@ const gotoLogin = () => router.push('/login')
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, #eef9f2 0%, #f6fbf8 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f6fbf8 100%);
   padding: 40px 16px;
+  color: var(--text, #082018);
 }
 
 .card{
   width: 100%;
-  max-width: 420px;
+  max-width: 460px;
   background: var(--card);
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(22, 64, 45, 0.08);
-  padding: 28px;
-  border: 1px solid rgba(46,139,87,0.08);
+  box-shadow: var(--shadow-lg);
+  padding: 30px;
+  border: 1px solid rgba(46,139,87,0.06);
+  transition: transform .08s ease, box-shadow .12s ease;
 }
+
+.card:hover { transform: translateY(-2px); }
 
 .card-header {
   text-align: center;
@@ -114,9 +146,10 @@ const gotoLogin = () => router.push('/login')
 
 .card-header h2 {
   margin: 0;
-  color: var(--green-700);
-  font-size: 1.4rem;
-  font-weight: 700;
+  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
 
 .muted {
@@ -128,79 +161,100 @@ const gotoLogin = () => router.push('/login')
 .form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .label-text {
-  font-size: 0.85rem;
-  color: #374151;
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-weight: 600;
 }
 
-/* inputs match Login styles */
 .field input {
   width: 100%;
   box-sizing: border-box;
-  height: 44px;
-  padding: 8px 12px;
+  height: 48px;
+  padding: 10px 12px;
   border: 1px solid rgba(15, 23, 42, 0.06);
-  border-radius: 8px;
-  background: #fbfffb;
+  border-radius: 10px;
+  background: var(--card, #06ee67);
   outline: none;
   font-size: 1rem;
-  transition: box-shadow 0.12s ease, border-color 0.12s ease;
+  transition: box-shadow 0.12s ease, border-color 0.12s ease, background .12s ease;
+  color: var(--text, #319c17);
 }
 
+.pwd-row { position: relative; }
+.with-toggle { padding-right: 48px; }
+
+.pwd-toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--accent);
+  transition: background 0.12s ease, transform 0.06s ease;
+}
+.pwd-toggle:hover { background: rgba(0,0,0,0.04); }
+
+.pwd-toggle svg { width: 18px; height: 18px; stroke: currentColor; fill: none; }
+
 input:focus {
-  box-shadow: 0 0 0 4px rgba(46,139,87,0.08);
-  border-color: var(--green-500);
+  box-shadow: 0 0 0 6px rgba(46,139,87,0.06);
+  border-color: var(--accent);
 }
 
 .actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   margin-top: 6px;
 }
 
 .btn {
   flex: 1;
-  height: 44px;
-  border-radius: 8px;
-  font-weight: 600;
+  height: 48px;
+  border-radius: 10px;
+  font-weight: 700;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: transform 0.06s ease, box-shadow 0.08s ease;
+  transition: transform 0.06s ease, box-shadow 0.08s ease, opacity .12s ease;
+  color: var(--text, #082018);
 }
 
 .btn:active { transform: translateY(1px); }
 
 .btn.primary {
-  background: linear-gradient(180deg, #34a853 0%, var(--green-700) 100%);
-  color: #000000;
-  box-shadow: 0 10px 30px rgba(46,139,87,0.18);
-  border: 1px solid rgba(10, 80, 35, 0.12);
-  transition: transform 0.06s ease, box-shadow 0.12s ease, filter 0.06s ease;
+  /* updated: stronger green button for Register */
+  background: linear-gradient(90deg, #16a34a, #059669);
+  color: #ffffff;
+  box-shadow: 0 10px 28px rgba(5, 118, 61, 0.18);
+  border: 1px solid rgba(5, 118, 61, 0.12);
 }
-
 .btn.primary:hover {
   filter: brightness(0.98);
-  box-shadow: 0 12px 36px rgba(46,139,87,0.22);
+  box-shadow: 0 12px 36px rgba(5, 118, 61, 0.22);
   transform: translateY(-1px);
 }
-
-.btn.primary:focus {
-  outline: 3px solid rgba(46,139,87,0.12);
-  outline-offset: 2px;
-}
+.btn.primary:focus { outline: 3px solid rgba(5, 118, 61, 0.12); outline-offset: 2px; }
 
 .btn.outline {
   background: transparent;
-  color: var(--green-700);
+  color: var(--accent);
   border: 1px solid rgba(46,139,87,0.12);
 }
 
@@ -218,8 +272,9 @@ input:focus {
   text-align: center;
 }
 
-@media (max-width: 420px){
+@media (max-width: 520px){
   .card { padding: 20px; }
   .actions { flex-direction: column; }
+  .btn { height: 44px; }
 }
-</style>
+</style> 
