@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, func
 from database import Base
+from sqlalchemy.orm import relationship
 import enum
 
 class StatusOptions(enum.Enum):
@@ -26,3 +27,21 @@ class Item(Base):
     status = Column(String, default="Available",  index=True, nullable=True)
     location = Column(String, default="School",  index=True, nullable=True)
     photo_url = Column(String,default="/",  index=True, nullable=True)
+    
+    
+class RequestStatus(enum.Enum):
+    pending = "Pending"
+    approved = "Approved"
+    denied = "Denied"
+
+class Request(Base):
+    __tablename__ = "requests"
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    item_id = Column(Integer, ForeignKey("items.id"), nullable=False)
+    status = Column(String, default=RequestStatus.pending.value, nullable=False, index=True)
+    requested_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    reviewed_at = Column(DateTime(timezone=True), nullable=True)
+
+    user = relationship("User", foreign_keys=[user_id])
+    item = relationship("Item")

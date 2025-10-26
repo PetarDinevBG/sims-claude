@@ -5,9 +5,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import Depends
 from sqlalchemy.orm import Session
 from database import SessionLocal 
-from models import User, Base, Item
+from models import User, Base, Item, Request
 from auth import create_access_token
-from schemas import UserCreate, UserOut, ItemCreate, ItemOut, UserLogin,UserRegister, RoleUpdate
+from schemas import UserCreate, UserOut, ItemCreate, ItemOut, UserLogin,UserRegister, RoleUpdate, RequestCreate, RequestOut
 from database import engine, get_db
 
 
@@ -137,3 +137,96 @@ def delete_item(item_id: int, db: Session = Depends(get_db)):
         db.rollback()
         raise HTTPException(status_code=400, detail="Could not delete item")
     return {"detail": "Item deleted"}
+@app.patch("/items/{item_id}/", response_model=ItemOut)
+def update_item(item_id: int, payload: dict, db: Session = Depends(get_db)):
+    """
+    Patch/update an item. Accepts a JSON object with any of the editable fields:
+    name, type, serial_number, location, condition, status.
+    Only provided fields will be updated.
+    """
+    db_item = db.query(Item).filter(Item.id == item_id).first()
+    if not db_item:
+        raise HTTPException(status_code=404, detail="Item not found")
+
+    allowed = {"name", "type", "serial_number", "location", "condition", "status"}
+    changed = False
+    for key, value in payload.items():
+        if key in allowed:
+            setattr(db_item, key, value)
+            changed = True
+
+    if not changed:
+        raise HTTPException(status_code=400, detail="No updatable fields provided")
+
+    try:
+        db.commit()
+        db.refresh(db_item)
+    except Exception:
+        db.rollback()
+        raise HTTPException(status_code=400, detail="Could not update item")
+    return db_item
+
+@app.get("/requests/", response_model=list[RequestOut])
+def get_requests(db: Session = Depends(get_db)):
+    return db.query(Request).all()
+
+@app.post("/requests/", response_model=RequestOut)
+def create_request(req: RequestCreate, db: Session = Depends(get_db)):
+    db_req = Request(
+        user_id=getattr(req, "user_id", None),
+        item_id=getattr(req, "item_id", None),
+        status=getattr(req, "status", "pending"),
+        # add other fields as your Request model defines them
+    )
+    db.add(db_req)
+    try:
+        db.commit()
+        db.refresh(db_req)
+    except Exception:
+        db.rollback()
+        raise HTTPException(status_code=400, detail="Could not create request")
+    return db_req
+
+@app.get("/requests/{request_id}/", response_model=RequestOut)
+def get_request(request_id: int, db: Session = Depends(get_db)):
+    db_req = db.query(Request).filter(Request.id == request_id).first()
+    if not db_req:
+        raise HTTPException(status_code=404, detail="Request not found")
+    return db_req
+
+@app.patch("/requests/{request_id}/", response_model=RequestOut)
+def update_request(request_id: int, payload: dict, db: Session = Depends(get_db)):
+    db_req = db.query(Request).filter(Request.id == request_id).first()
+    if not db_req:
+        raise HTTPException(status_code=404, detail="Request not found")
+
+    allowed = {"requester", "item_id", "status", "notes"}
+    changed = False
+    for key, value in payload.items():
+        if key in allowed:
+            setattr(db_req, key, value)
+            changed = True
+
+    if not changed:
+        raise HTTPException(status_code=400, detail="No updatable fields provided")
+
+    try:
+        db.commit()
+        db.refresh(db_req)
+    except Exception:
+        db.rollback()
+        raise HTTPException(status_code=400, detail="Could not update request")
+    return db_req
+
+@app.delete("/requests/{request_id}/")
+def delete_request(request_id: int, db: Session = Depends(get_db)):
+    db_req = db.query(Request).filter(Request.id == request_id).first()
+    if not db_req:
+        raise HTTPException(status_code=404, detail="Request not found")
+    try:
+        db.delete(db_req)
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise HTTPException(status_code=400, detail="Could not delete request")
+    return {"detail": "Request deleted"}

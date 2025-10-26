@@ -1,3 +1,4 @@
+import datetime
 from typing import Optional
 from pydantic import BaseModel
 
@@ -50,3 +51,19 @@ class ItemOut(BaseModel):
 class UserLogin(BaseModel):
     username: str
     password: str
+
+class RequestCreate(BaseModel):
+    item_id: int
+    user_id: int
+
+    
+class RequestOut(BaseModel):
+    id: int
+    item_id: int
+    user_id: int
+    status: str
+    requested_at: Optional[datetime.datetime]
+    reviewed_at: Optional[datetime.datetime]
+
+    class Config:
+        orm_mode = True
